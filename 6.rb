@@ -1,27 +1,26 @@
 module Test
-    def self.result(a, b)
+    def result(a, b)
         average = (a+b)/2
         if average > 4
-            puts "aprobado"
+             "#aprobado con un promedio #{average}"
         else
-            puts "reprobado"
+             "reprobado con un promedio #{average}"
         end
     end
 end
 
 module Attendance
     def self.student_quantity
-        10.times do |i|
-            Student.new("mauro#{i}",rand(1..7), rand(1..7))
-        end
         puts Student.get_number_of_quantity
     end
 end
+
 class Student
-    incluse Test
+    attr_accessor :nombre, :notas1, :notas2
+    include Test
     extend Attendance
     @@quantity = 0
-    def initialize(nombre='student', nota1 = 4, nota2 = 4)
+    def initialize(nombre='student', notas1 = 4, notas2 = 4)
         @nombre = nombre
         @notas1 = notas1
         @notas2 = notas2
@@ -31,4 +30,8 @@ class Student
         @@quantity
     end
 end
-puts Attendance.student_quantity
+10.times do |i|
+    alumno = Student.new("Alumno #{i} con notas :",rand(1..7), rand(1..7))
+    puts "#{alumno.nombre}, #{alumno.notas1}, #{alumno.notas2}, #{alumno.result(alumno.notas1, alumno.notas2)}"
+end
+#puts Attendance.student_quantity
