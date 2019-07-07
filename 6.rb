@@ -2,7 +2,7 @@ module Test
     def result(a, b)
         average = (a+b)/2
         if average > 4
-             "#aprobado con un promedio #{average}"
+             "aprobado con un promedio #{average}"
         else
              "reprobado con un promedio #{average}"
         end
